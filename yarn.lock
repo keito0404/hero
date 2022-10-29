@@ -123,6 +123,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-html5-camera-photo@^1.5.1":
+  "integrity" "sha512-5kJwACiD+fIErQiS6bVD7+d4b9lnECbfWqbDTTAcDyBDRAXDoBEqRCfRjlTYnhNIkkWJA1Ow3s8xCuLKvC1IkQ=="
+  "resolved" "https://registry.npmjs.org/@types/react-html5-camera-photo/-/react-html5-camera-photo-1.5.1.tgz"
+  "version" "1.5.1"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@18.0.22":
   "integrity" "sha512-4yWc5PyCkZN8ke8K9rQHkTXxHIWHxLzzW6RI1kXVoepkD3vULpKzC2sDtAMKn78h92BRYuzf+7b/ms7ajE6hFw=="
   "resolved" "https://registry.npmjs.org/@types/react/-/react-18.0.22.tgz"
