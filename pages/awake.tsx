@@ -13,7 +13,10 @@ const Awake: NextPage = () => {
       <h1 className="text-white text-7xl h-screen w-screen flex justify-center items-center font-medium relative mx-auto">
         勇者は復活した
       </h1>
-      <img className="mt-6 rounded-lg shadow-xl" src="public/slime/勇者.png" />
+      <img
+        className="mt-6 rounded-lg shadow-xl object-contain"
+        src="slime/勇者.png"
+      ></img>
     </div>
   );
 };
