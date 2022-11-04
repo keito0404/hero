@@ -1,5 +1,10 @@
 import type { NextPage } from "next";
-// import Sound from './決定、ボタン押下/4';
+import useSound from "use-sound";
+// import FailedSound from "./public/sounds/Levelup.mp3";
+
+// const Sound = () => {
+//   const [play] = useSound(FailedSound);
+// };
 
 export async function getServerSideProps() {
   //   try {
@@ -16,26 +21,27 @@ export async function getServerSideProps() {
 
 const Sleep_twice: NextPage = () => {
   return (
-    <div className="flex-flow:column justify-content:space-around align-items: center items-center">
-      <div className="container border-4 border-whit mx-auto  rounded relative items-center ">
-        <h1 className="text-white text-7xl  font-medium relative mx-auto ">
-          勇者を起こせなかった
-        </h1>
-        <h2>
-          <img
-            className="mt-6 rounded-lg shadow-xl object-contain items-center"
+     <div className=" h-screen w-screen flex flex-col justify-center  items-center ">
+      <div className="container  border-white border-2 rounded">
+      <h1 className="text-white text-6xl flex justify-center items-center">
+        勇者は起きなかった
+      </h1>
+    </div>
+    <div>
+      <img
+            className="mt-6 rounded-lg shadow-xl object-contain items-center flex justify-center"
             width={300}
             height={300}
-            src="slime/スライムアイコン.png"
-          ></img>
-        </h2>
-        <h3>
-          <button className="bg-white hover:bg-white text-black rounded px-4 py-2 bottom-7">
+            src="slime/スライムアイコン.png"></img>
+            </div>
+          <div>
+          <button className="bg-neutral-50 hover:bg-neutral-200 text-black rounded px-4 py-2 bottom-7">
             ホームに戻る
           </button>
-        </h3>
-      </div>
+          </div>
     </div>
+         
+     
   );
 };
 export default Sleep_twice;
