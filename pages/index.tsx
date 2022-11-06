@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Clocks from '../components/Clocks'
 import Alarm from '../components/Alarm'
 
-const Home: NextPage = () => {
+export default function Home() {
   return (
     <>
     <div>
@@ -23,4 +23,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+
