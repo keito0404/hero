@@ -1,6 +1,4 @@
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
-import useSound from "use-sound";
 
 export async function getServerSideProps() {
   await fetch(
