@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-
+import useSound from "use-sound";
 export async function getServerSideProps() {
   await fetch(
     "https://tqscqxulxh.execute-api.ap-northeast-1.amazonaws.com/default/obniz_slime"
@@ -9,6 +9,8 @@ export async function getServerSideProps() {
 }
 
 const Sleep_twice: NextPage = () => {
+  const [play] = useSound("sounds/gameover.mp3");
+
   return (
     <div className="h-screen w-screen flex flex-col justify-center  items-center ">
       <div className="container  border-white border-2 rounded">
@@ -19,6 +21,7 @@ const Sleep_twice: NextPage = () => {
       <div>
         <img
           className="mt-6 rounded-lg shadow-xl object-contain items-center flex justify-center"
+          onMouseEnter={() => play()}
           width={300}
           height={300}
           src="slime/スライムアイコン.png"></img>
