@@ -13,7 +13,7 @@ const Sleep_twice: NextPage = () => {
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center  items-center ">
-      <div className="container  border-white border-2 rounded">
+      <div className="container  border-white border-4 rounded">
         <h1 className="text-white text-6xl flex justify-center items-center">
           勇者は起きなかった
         </h1>
