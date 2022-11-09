@@ -1,7 +1,10 @@
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import useSound from "use-sound";
 const Awake: NextPage = () => {
   const [play] = useSound("sounds/Levelup.mp3");
+
+  const router = useRouter();
 
   return (
     <div className=" h-screen w-screen flex flex-col justify-center  items-center ">
@@ -19,7 +22,9 @@ const Awake: NextPage = () => {
           height={250}></img>
       </div>
       <div>
-        <button className="bg-neutral-50 hover:bg-neutral-200 text-black rounded px-4 py-2 bottom-7">
+        <button
+          className="bg-neutral-50 hover:bg-neutral-200 text-black rounded px-4 py-2 bottom-7"
+          onClick={() => router.push("./")}>
           ホームに戻る
         </button>
       </div>
