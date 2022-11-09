@@ -1,22 +1,22 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import App from './App'
 import Image from 'next/image'
 import Clocks from '../components/Clocks'
-import Alarm from '../components/Alarm'
+import AlarmMyone from '../components/Alarmmyone'
 
 export default function Home() {
   return (
     <>
-    <div>
+    <div className = 'text-white text-4xl '>
       <Head>
         <title>ふっかつ！！</title>
       </Head>
 
       <main>
-        <h1 className = 'text-6xl'>勇者ふっかつの刻</h1>
+        <h1  className = 'container mx-auto my-4 px-4 border-4 border-white text-8xl text-white flex justify-center'>勇者ふっかつ時計</h1>
         <Clocks/>
-        {/* <Alarm/> */}
+        <br></br><br></br><br></br>
+        <AlarmMyone/>
       </main>
     </div>
     </>

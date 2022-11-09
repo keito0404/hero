@@ -5,13 +5,8 @@ interface ClockNum {
   }
 
 const DigitalClock: React.VFC<ClockNum> = ({ time }) => {
-  return <div className="text-5xl decoretion-white mt-12">{dayjs(time).format('HH:mm:ss')}</div>
+  return <div className="text-8xl decoretion-white mt-12 text-white flex justify-center">{dayjs(time).format('A hh:mm:ss')}</div>
 }
 
-// const SClockText = styled.div`
-//   font-size: 50px;
-//   color: #ffffff;
-//   margin-top: 100px;
-// `
 
 export default DigitalClock

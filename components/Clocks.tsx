@@ -1,5 +1,4 @@
 import DigitalClock from './DigitalClock'
-// import AnalogClock from './AnalogClock'
 import { useTime } from '../hooks/useTime'
 
 const Clocks = () => {
@@ -7,7 +6,6 @@ const Clocks = () => {
   return (
     <>
       <DigitalClock time={time} />
-        {/* <AnalogClock time={time} /> */}
     </>
   )
 }

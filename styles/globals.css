@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{background-color: black;}
+
+@font-face {
+    /*フォントの名前*/
+    font-family: "DoragonQuestsub";
+    /*フォントファイルへのパス（複数指定の場合、上から順に読み込まれる）*/
+    src: url("C:/Users/bi200018/Documents/DragonQuestsub.woff") format("woff");
+  }
+  .mamelonClass{
+    font-family: "DoragonQuestsub";
+  }
+
+  dragonFont{
+    font: "DoragonQuestsub";
+  }
