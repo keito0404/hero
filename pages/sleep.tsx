@@ -66,6 +66,10 @@ export default function Sleep() {
     }
   };
 
+  if (hp === 0) {
+    router.push("./awake");
+  }
+
   return (
     <div className="text-white">
       <div>
