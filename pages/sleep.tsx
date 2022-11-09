@@ -60,11 +60,6 @@ export default function Sleep() {
     if (difficultyLevel[randomNum] == "easy") {
       return <EasyMode onChangeIncatation={onChangeIncatation} />;
     } else if (difficultyLevel[randomNum] == "normal") {
-      // TODO：１.onChangeIncationのように、inputIncatation関数を作る(ちなみに引数の型は
-      //          (e: ChangeEvent<HTMLInputElement>) )
-      //       2. useStateを利用して、inputIncatation変数を作る
-      //       3. NormalMode.tsxコンポーネントの中でpropsとしてinputIncatation関数を受け取る
-      //       4. これでノーマルモードは完成や！！（Next, ハードモード）
       return <NormalMode inputIncatation={inputIncatation} />;
     } else if (difficultyLevel[randomNum] == "hard") {
       return <HardMode />;
