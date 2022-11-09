@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Clocks from '../components/Clocks'
-import AlarmMyone from '../components/Alarmmyone'
+import AlarmMyone from '../components/AlarmMyone'
 
 export default function Home() {
   return (
