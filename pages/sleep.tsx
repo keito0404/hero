@@ -7,11 +7,15 @@ import HardMode from "../components/HardMode";
 import Camera from "react-html5-camera-photo";
 import ImagePreview from "../components/ImagePreview";
 import "react-html5-camera-photo/build/css/index.css";
+import useSound from "use-sound";
 
 export default function Sleep() {
+  const [playSuccess] = useSound("sounds/attackSound.mp3");
+  const [playMiss] = useSound("sounds/deathSound.mp3");
   const router = useRouter();
   const [hp, setHp] = useState(100);
-  const [countdown, setCountdown] = useState(15);
+  const [missCount, setMissCount] = useState(0);
+  const [countdown, setCountdown] = useState(60);
   const [incantation, setIncantation] = useState("");
   const [randomNum, setRandomNum] = useState(0);
   const [selectedIncation, setSelectedIncatation] = useState("");
@@ -52,8 +56,11 @@ export default function Sleep() {
         setHp(hp - 20);
         shuffleIncations(incantations);
         setAttackResult("攻撃が成功した");
+        playSuccess();
       } else {
         setAttackResult("攻撃が失敗した");
+        setMissCount(missCount + 1);
+        playMiss();
       }
     } else if (difficultyLevel[randomNum] == "normal") {
       if (selectedWord == incantation) {
@@ -61,9 +68,12 @@ export default function Sleep() {
         shuffleIncations(incantations);
         setAttackResult("攻撃が成功した");
         setSelectedWord("");
+        playSuccess();
       } else {
         setAttackResult("攻撃が失敗した");
         setSelectedWord("");
+        setMissCount(missCount + 1);
+        playMiss();
       }
     } else if (difficultyLevel[randomNum] == "hard") {
     }
@@ -87,28 +97,32 @@ export default function Sleep() {
   if (hp === 0) {
     router.push("./awake");
   }
-
+  if (missCount === 1) {
+    router.push("./sleep_twice");
+  }
   return (
-    <div className="text-white">
-      <div className="m-8">
+    <div className=" text-white">
+      <div className="flex justify-center m-8">
         {dataUri ? (
           <ImagePreview dataUri={dataUri} isFullscreen={isFullscreen} />
         ) : (
-          <Camera
-            onTakePhotoAnimationDone={handleTakePhotoAnimationDone}
-            isFullscreen={isFullscreen}
-          />
+          <div className="w-1/3">
+            <Camera
+              onTakePhotoAnimationDone={handleTakePhotoAnimationDone}
+              isFullscreen={isFullscreen}
+            />
+          </div>
         )}
       </div>
       <div className="flex justify-center text-3xl">
         <p>残りHP：{hp}</p>
       </div>
       <div className="flex justify-center text-3xl">
-        <p>相手にダメージを与える ：{incantation}</p>
+        <p>相手にダメージを与える呪文 ：{incantation}</p>
       </div>
       <DisplayHp hp={hp} />
 
-      <div>
+      <div className="flex flex-col justify-center text-center">
         {/* <audio controls autoplay src="./Levelup.mp3"></audio> */}
 
         {selectedLevel(randomNum)}
