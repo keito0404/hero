@@ -19,6 +19,7 @@ export default function Sleep() {
   const [selectedWord, setSelectedWord] = useState(""); //setSelectedWordは初期値空
   const incantations = ["A", "B", "C", "D", "E"];
   const difficultyLevel = ["easy", "normal", "hard"];
+  const isFullscreen = false;
   const [dataUri, setDataUri] = useState("");
   const handleTakePhotoAnimationDone = (dataUri: string) => {
     console.log("takePhoto");
@@ -44,10 +45,6 @@ export default function Sleep() {
     setSelectedIncatation(e.target.value);
   const inputIncatation = (e: ChangeEvent<HTMLInputElement>) =>
     setSelectedWord(e.target.value);
-  const isFullscreen = false;
-  function shuffleArray(array: any) {
-    array.sort(() => Math.random() - 0.5);
-  }
 
   const attack = () => {
     if (difficultyLevel[randomNum] == "easy") {
@@ -63,8 +60,10 @@ export default function Sleep() {
         setHp(hp - 20);
         shuffleIncations(incantations);
         setAttackResult("攻撃が成功した");
+        setSelectedWord("");
       } else {
         setAttackResult("攻撃が失敗した");
+        setSelectedWord("");
       }
     } else if (difficultyLevel[randomNum] == "hard") {
     }
@@ -74,7 +73,12 @@ export default function Sleep() {
     if (difficultyLevel[randomNum] == "easy") {
       return <EasyMode onChangeIncatation={onChangeIncatation} />;
     } else if (difficultyLevel[randomNum] == "normal") {
-      return <NormalMode inputIncatation={inputIncatation} />;
+      return (
+        <NormalMode
+          inputIncatation={inputIncatation}
+          selectedWord={selectedWord}
+        />
+      );
     } else if (difficultyLevel[randomNum] == "hard") {
       return <HardMode />;
     }
