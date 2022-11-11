@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import DisplayHp from "../components/DisplayHp";
 import EasyMode from "../components/EasyMode";
 import NormalMode from "../components/NormalMode";
-import HardMode from "../components/HardMode";
 import Camera from "react-html5-camera-photo";
 import ImagePreview from "../components/ImagePreview";
 import "react-html5-camera-photo/build/css/index.css";
@@ -15,14 +14,19 @@ export default function Sleep() {
   const router = useRouter();
   const [hp, setHp] = useState(100);
   const [missCount, setMissCount] = useState(0);
-  const [countdown, setCountdown] = useState(60);
   const [incantation, setIncantation] = useState("");
   const [randomNum, setRandomNum] = useState(0);
   const [selectedIncation, setSelectedIncatation] = useState("");
   const [attackResult, setAttackResult] = useState("");
   const [selectedWord, setSelectedWord] = useState(""); //setSelectedWordは初期値空
-  const incantations = ["A", "B", "C", "D", "E"];
-  const difficultyLevel = ["easy", "normal", "hard"];
+  const incantations = [
+    "メガンテ",
+    "バルプンテ",
+    "アストロン",
+    "ステルス",
+    "ヴェレノーマ",
+  ];
+  const difficultyLevel = ["easy", "normal"];
   const isFullscreen = false;
   const [dataUri, setDataUri] = useState("");
   const handleTakePhotoAnimationDone = (dataUri: string) => {
@@ -75,7 +79,6 @@ export default function Sleep() {
         setMissCount(missCount + 1);
         playMiss();
       }
-    } else if (difficultyLevel[randomNum] == "hard") {
     }
   };
 
@@ -89,8 +92,6 @@ export default function Sleep() {
           selectedWord={selectedWord}
         />
       );
-    } else if (difficultyLevel[randomNum] == "hard") {
-      return <HardMode />;
     }
   };
 
@@ -120,19 +121,20 @@ export default function Sleep() {
       <div className="flex justify-center text-3xl">
         <p>相手にダメージを与える呪文 ：{incantation}</p>
       </div>
+
       <DisplayHp hp={hp} />
 
-      <div className="flex flex-col justify-center text-center">
-        {/* <audio controls autoplay src="./Levelup.mp3"></audio> */}
-
+      <div className="flex flex-col ">
         {selectedLevel(randomNum)}
-        <button
-          className="bg-gray-600 hover:bg-gray-500 text-white rounded px-4 py-2"
-          onClick={attack}
-        >
-          覚醒
-        </button>
-        <p>{attackResult}</p>
+        <div className="flex justify-center">
+          <button
+            className="text-xl font-medium w-1/3 m-10 container border-4 border-white text-white rounded  px-4 py-2 "
+            onClick={attack}
+          >
+            覚醒
+          </button>
+          <p>{attackResult}</p>
+        </div>
       </div>
     </div>
   );
