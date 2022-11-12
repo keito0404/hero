@@ -22,7 +22,7 @@ const DisplayHp = (props: Props) => {
 
   return (
     <div className="flex justify-center">
-      <div className="p-3 w-4/5 bg-black flex px-3.5 border-2 border-white">
+      <div className="m-3 p-3 w-4/5 bg-black flex px-3.5 border-2 border-white">
         <div className={`p-3 ${hpBar} bg-white transition-all`}></div>
       </div>
     </div>

@@ -1,9 +1,12 @@
+
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Clocks from '../components/Clocks'
 import AlarmMyone from '../components/AlarmMyone'
 import { ChangeEvent, useState} from "react"
+
+
 
 export default function Home() {
 
@@ -44,6 +47,7 @@ export default function Home() {
 
 return (
     <>
+
       <Head>
         <title>ふっかつ！！</title>
       </Head>
@@ -139,8 +143,7 @@ return (
         <AlarmMyone/>
         </div>
       </main>
+
     </>
-  )
+  );
 }
-
-
