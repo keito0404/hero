@@ -10,7 +10,8 @@ import useSound from "use-sound";
 
 export default function Sleep() {
   const [playSuccess] = useSound("sounds/attackSound.mp3");
-  const [playMiss] = useSound("sounds/deathSound.mp3");
+  const [playMiss] = useSound("sounds/gameover.mp3");
+  const [succcessSound] =useSound("sounds/Levelup.mp3");
   const router = useRouter();
   const [hp, setHp] = useState(100);
   const [missCount, setMissCount] = useState(0);
@@ -64,7 +65,7 @@ export default function Sleep() {
       } else {
         setAttackResult("攻撃が失敗した");
         setMissCount(missCount + 1);
-        playMiss();
+      
       }
     } else if (difficultyLevel[randomNum] == "normal") {
       if (selectedWord == incantation) {
@@ -77,11 +78,10 @@ export default function Sleep() {
         setAttackResult("攻撃が失敗した");
         setSelectedWord("");
         setMissCount(missCount + 1);
-        playMiss();
       }
     }
   };
-
+  
   const selectedLevel = (randomNum: number) => {
     if (difficultyLevel[randomNum] == "easy") {
       return <EasyMode onChangeIncatation={onChangeIncatation} />;
@@ -91,15 +91,17 @@ export default function Sleep() {
           inputIncatation={inputIncatation}
           selectedWord={selectedWord}
         />
-      );
+        );
+      }
+    };
+    
+    if (hp === 0) {
+      succcessSound();
+      router.push("./awake");
     }
-  };
-
-  if (hp === 0) {
-    router.push("./awake");
-  }
-  if (missCount === 1) {
-    router.push("./sleep_twice");
+    if (missCount === 1) {
+      router.push("./sleep_twice");
+      playMiss();
   }
   return (
     <div className=" text-white">
