@@ -60,10 +60,10 @@ export default function Sleep() {
       if (selectedIncation == incantation) {
         setHp(hp - 20);
         shuffleIncations(incantations);
-        setAttackResult("攻撃が成功した");
+        setAttackResult("刺激を与えている");
         playSuccess();
       } else {
-        setAttackResult("攻撃が失敗した");
+        setAttackResult("勇者は目を覚ます様子がない");
         setMissCount(missCount + 1);
       
       }
@@ -71,11 +71,11 @@ export default function Sleep() {
       if (selectedWord == incantation) {
         setHp(hp - 20);
         shuffleIncations(incantations);
-        setAttackResult("攻撃が成功した");
+        setAttackResult("刺激を与えている");
         setSelectedWord("");
         playSuccess();
       } else {
-        setAttackResult("攻撃が失敗した");
+        setAttackResult("勇者は目を覚ます様子がない");
         setSelectedWord("");
         setMissCount(missCount + 1);
       }
