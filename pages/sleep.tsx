@@ -9,7 +9,7 @@ import "react-html5-camera-photo/build/css/index.css";
 import useSound from "use-sound";
 
 export default function Sleep() {
-  const [playSuccess] = useSound("Sounds/attackSound.mp3");
+  const [playSuccess] = useSound("sounds/attackSound.mp3");
   const [playMiss] = useSound("sounds/gameover.mp3");
   const [succcessSound] =useSound("sounds/Levelup.mp3");
   const router = useRouter();
