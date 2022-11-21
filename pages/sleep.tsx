@@ -18,7 +18,7 @@ export default function Sleep() {
   const [randomNum, setRandomNum] = useState(0);
   const [selectedIncation, setSelectedIncatation] = useState("");
   const [attackResult, setAttackResult] = useState("");
-  const [selectedWord, setSelectedWord] = useState(""); //setSelectedWordは初期値空
+  const [selectedWord, setSelectedWord] = useState("");
   const incantations = [
     "メガンテ",
     "バルプンテ",
@@ -37,7 +37,7 @@ export default function Sleep() {
   useEffect(() => {
     shuffleIncations(incantations);
     shuffleLevels(difficultyLevel);
-  }, []); //一番初めに実行される
+  }, []);
 
   const shuffleIncations = (vals: any) => {
     let castIncation = Math.floor(Math.random() * vals.length);
@@ -59,10 +59,10 @@ export default function Sleep() {
       if (selectedIncation == incantation) {
         setHp(hp - 20);
         shuffleIncations(incantations);
-        setAttackResult("攻撃が成功した");
+        setAttackResult("刺激を与えている");
         playSuccess();
       } else {
-        setAttackResult("攻撃が失敗した");
+        setAttackResult("勇者は目を覚ます様子がない");
         setMissCount(missCount + 1);
         playMiss();
       }
@@ -70,11 +70,11 @@ export default function Sleep() {
       if (selectedWord == incantation) {
         setHp(hp - 20);
         shuffleIncations(incantations);
-        setAttackResult("攻撃が成功した");
+        setAttackResult("刺激を与えている");
         setSelectedWord("");
         playSuccess();
       } else {
-        setAttackResult("攻撃が失敗した");
+        setAttackResult("勇者は目を覚ます様子がない");
         setSelectedWord("");
         setMissCount(missCount + 1);
         playMiss();
@@ -116,10 +116,10 @@ export default function Sleep() {
         )}
       </div>
       <div className="flex justify-center text-3xl">
-        <p>残りHP：{hp}</p>
+        <p>残り睡魔：{hp}</p>
       </div>
       <div className="flex justify-center text-3xl">
-        <p>相手にダメージを与える呪文 ：{incantation}</p>
+        <p>刺激を与える呪文 ：{incantation}</p>
       </div>
 
       <DisplayHp hp={hp} />
